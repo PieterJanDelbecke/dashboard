@@ -61,6 +61,26 @@ const Sidebar = () => {
 		>
 			<ProSidebar collapsed={isCollapsed}>
 				<Menu iconShape="square">
+					{/* LOGO AND MENU ICON */}
+					<MenuItem
+						onClick={() => setIsCollapsed(!isCollapsed)}
+						icon={isCollapsed ? <MenuOutlinedIcon /> : undefined}
+						style={{
+							margin: "10px 0 20px 0",
+							color: colors.grey[100],
+						}}
+					>
+						{!isCollapsed && (
+							<Box display="flex" justifyContent="space-between" alignItems="center" ml="15px">
+								<Typography variant="h3" color={colors.grey[100]}>
+									ADMINIS
+								</Typography>
+								<IconButton onClick={() => setIsCollapsed(!isCollapsed)}>
+									<MenuOutlinedIcon />
+								</IconButton>
+							</Box>
+						)}
+					</MenuItem>
 					{/* USER */}
 					{!isCollapsed && (
 						<Box mb="25px">
@@ -86,6 +106,9 @@ const Sidebar = () => {
 					{/* MENU ITEMS */}
 					<Box paddingLeft={isCollapsed ? undefined : "10%"}>
 						<Item title="Dashboard" to="/" icon={<HomeOutlinedIcon />} selected={selected} setSelected={setSelected} />
+						<Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
+							Data
+						</Typography>
 						<Item
 							title="Manage Team"
 							to="/team"
@@ -107,6 +130,9 @@ const Sidebar = () => {
 							selected={selected}
 							setSelected={setSelected}
 						/>
+						<Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
+							Pages
+						</Typography>
 						<Item
 							title="Profile Form"
 							to="/form"
@@ -128,6 +154,9 @@ const Sidebar = () => {
 							selected={selected}
 							setSelected={setSelected}
 						/>
+						<Typography variant="h6" color={colors.grey[300]} sx={{ m: "15px 0 5px 20px" }}>
+							Charts
+						</Typography>
 						<Item
 							title="Bar Chart"
 							to="/bar"
